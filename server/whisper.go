@@ -7,22 +7,22 @@ import (
 	"github.com/ggerganov/whisper.cpp/bindings/go/pkg/whisper"
 )
 
-func get_model() {
+var model whisper.Model
 
-}
+func init_model() {
+	var modelpath string = "../whisper.cpp/models/ggml-medium-q4_1.bin" 
+	modelpath = "../whisper.cpp/models/ggml-small-q8_0.bin" // TODO: use medium model
+	var err error
 
-func audio_transcribe(file io.ReadSeeker) (string, error) {
-	var modelpath string = "../whisper.cpp/models/ggml-medium-q4_1.bin"
-	// var modelpath string = "../whisper.cpp/models/ggml-small-q8_0.bin"
-	var samples []float32 // Samples to process
-
-
-	// Load the model
-	model, err := whisper.New(modelpath)
+	// load model
+	model, err = whisper.New(modelpath)
 	if err != nil {
 		panic(err)
 	}
-	defer model.Close()
+}
+
+func audio_transcribe(file io.ReadSeeker) (string, error) {
+	var samples []float32 // Samples to process
 
 	// Process samples
 	context, err := model.NewContext()
@@ -30,8 +30,6 @@ func audio_transcribe(file io.ReadSeeker) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
-	fmt.Printf("\n%s\n", context.SystemInfo())
 
 	// Decode the WAV file - load the full buffer
 	dec := wav.NewDecoder(file)
@@ -51,13 +49,15 @@ func audio_transcribe(file io.ReadSeeker) (string, error) {
 	}
 
 	// Print out the results
+	var result string = "" 
 	for {
 		segment, err := context.NextSegment()
 		if err != nil {
 			break
 		}
 		fmt.Printf("[%6s->%6s] %s\n", segment.Start, segment.End, segment.Text)
+		result += segment.Text
 	}
 
-	return "puk", nil
+	return result, nil
 }
