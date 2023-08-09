@@ -13,7 +13,7 @@ var m whisper.Model
 
 func init_model() {
 	var modelpath string = "../whisper.cpp/models/ggml-medium-q4_1.bin" 
-	modelpath = "../whisper.cpp/models/ggml-small-q8_0.bin" // TODO: use medium m
+	modelpath = "../whisper.cpp/models/ggml-small-q4_1.bin" // TODO: use medium m
 	var err error
 
 	// load m
