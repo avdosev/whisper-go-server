@@ -6,7 +6,8 @@ import (
 	wav "github.com/go-audio/wav"
 	// "github.com/ggerganov/whisper.cpp/bindings/go/pkg/whisper"
 	"github.com/avdosev/whisper.cpp/bindings/go/pkg/whisper"
-
+	"strings"
+	"unicode"
 )
 
 var m whisper.Model
@@ -62,7 +63,14 @@ func audio_transcribe(file io.ReadSeeker) (string, error) {
 			break
 		}
 		fmt.Printf("[%6s->%6s] %s\n", segment.Start, segment.End, segment.Text)
-		result += segment.Text
+		s := segment.Text
+		if !(strings.HasSuffix(s, ".") || strings.HasSuffix(s, "!") || strings.HasSuffix(s, "?")) {
+			s += "."
+			r := []rune(s)
+			r[0] = unicode.ToUpper(r[0])
+			s = string(r)
+		}
+		result += s + " "
 	}
 
 	return result, nil
