@@ -1,3 +1,5 @@
+github.com/avdosev/whisper.cpp/bindings/go v0.0.0-20230809190856-63bb42ebf542 h1:gjv2VHvBfLD62JFC79F5B/6dwW6J+ffT6E/E+0f1/PI=
+github.com/avdosev/whisper.cpp/bindings/go v0.0.0-20230809190856-63bb42ebf542/go.mod h1:LIEYtNSS+TeHRo+FmhEVR6o6M7LG+VeL1lPJ/zu2Xpo=
 github.com/bytedance/sonic v1.5.0/go.mod h1:ED5hyg4y6t3/9Ku1R6dU/4KyJ48DZ4jPhfY1O2AihPM=
 github.com/bytedance/sonic v1.9.1 h1:6iJ6NqdoxCDr6mbY8h18oSO+cShGSMRGCEo7F2h0x8s=
 github.com/bytedance/sonic v1.9.1/go.mod h1:i736AoUSYt75HyZLoJW9ERYxcy6eaN6h4BZXU064P/U=
@@ -9,8 +11,6 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gabriel-vasile/mimetype v1.4.2 h1:w5qFW6JKBz9Y393Y4q372O9A7cUSequkh1Q7OhCmWKU=
 github.com/gabriel-vasile/mimetype v1.4.2/go.mod h1:zApsH/mKG4w07erKIaJPFiX0Tsq9BFQgN3qGY5GnNgA=
-github.com/ggerganov/whisper.cpp/bindings/go v0.0.0-20230806080442-a4bb2df36aeb h1:AybmL/OaWxiuGM/sApmAUeuj2AdPFTThSV3FlEKMHJ0=
-github.com/ggerganov/whisper.cpp/bindings/go v0.0.0-20230806080442-a4bb2df36aeb/go.mod h1:QIjZ9OktHFG7p+/m3sMvrAJKKdWrr1fZIK0rM6HZlyo=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/gin v1.9.1 h1:4idEAncQnU5cB7BeOkPtxjfCSye0AAm1R0RVIqJ+Jmg=

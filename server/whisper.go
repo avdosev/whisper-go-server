@@ -4,32 +4,38 @@ import (
 	"fmt"
 	"io"
 	wav "github.com/go-audio/wav"
-	"github.com/ggerganov/whisper.cpp/bindings/go/pkg/whisper"
+	// "github.com/ggerganov/whisper.cpp/bindings/go/pkg/whisper"
+	"github.com/avdosev/whisper.cpp/bindings/go/pkg/whisper"
+
 )
 
-var model whisper.Model
+var m whisper.Model
 
 func init_model() {
 	var modelpath string = "../whisper.cpp/models/ggml-medium-q4_1.bin" 
-	modelpath = "../whisper.cpp/models/ggml-small-q8_0.bin" // TODO: use medium model
+	modelpath = "../whisper.cpp/models/ggml-small-q8_0.bin" // TODO: use medium m
 	var err error
 
-	// load model
-	model, err = whisper.New(modelpath)
+	// load m
+	m, err = whisper.New(modelpath)
 	if err != nil {
 		panic(err)
 	}
 }
 
+
 func audio_transcribe(file io.ReadSeeker) (string, error) {
 	var samples []float32 // Samples to process
 
 	// Process samples
-	context, err := model.NewContext()
+	context, err := m.NewContext()
 
 	if err != nil {
 		return "", err
 	}
+
+	context.SetLanguage("ru")
+	context.SetTranslate(false)
 
 	// Decode the WAV file - load the full buffer
 	dec := wav.NewDecoder(file)

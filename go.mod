@@ -1,9 +1,9 @@
-module main
+module server
 
 go 1.20
 
 require (
-	github.com/ggerganov/whisper.cpp/bindings/go v0.0.0-20230806080442-a4bb2df36aeb
+	github.com/avdosev/whisper.cpp/bindings/go v0.0.0-20230809190856-63bb42ebf542
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-audio/wav v1.1.0
 )
