@@ -64,12 +64,6 @@ func audio_transcribe(file io.ReadSeeker) (string, error) {
 		}
 		fmt.Printf("[%6s->%6s] %s\n", segment.Start, segment.End, segment.Text)
 		s := segment.Text
-		if !(strings.HasSuffix(s, ".") || strings.HasSuffix(s, "!") || strings.HasSuffix(s, "?")) {
-			s += "."
-			r := []rune(s)
-			r[0] = unicode.ToUpper(r[0])
-			s = string(r)
-		}
 		result += s + " "
 	}
 
